@@ -1,0 +1,203 @@
+{
+	"variables": [],
+	"info": {
+		"name": "EmployeePortal",
+		"_postman_id": "f5ea31bd-4af6-0738-9bc2-2bae18c89038",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register New Employee",
+			"request": {
+				"url": "http://localhost:3000/user/register/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Typea",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"EmpPersonalDetails\": {\r\n                \"Name\": \"Shuvo J.\",\r\n                \"Dob\": \"1993-07-04\",\r\n                \"Gender\": \"MALE\",\r\n                \"EmailId\": \"shhdu233@gmail.com\",\r\n                \"Nationality\": \"Indian\",\r\n                \"ContactNo\": \"9932272323\",\r\n                \"ProfilePic\": null,\r\n                \"EmpAddress\":[\r\n                   \r\n                   \r\n                    {\r\n                    \t\"Type\":\"PERMANENT\",\r\n                        \"HouseNo\":\"985AB\",\r\n                        \"WardNo\":3,\r\n                        \"Street\":\"NL Road\",\r\n                        \"LandMark\":\"BSNL Microwave Tower\",\r\n                        \"City\":\"Purulia\",\r\n                        \"State\":\"WB\",\r\n                        \"Country\":\"INDIA\",\r\n                        \"PinCode\":723101\r\n                    },\r\n                    {\r\n                    \t\"Type\":\"RESIDENTIAL\",\r\n                        \"HouseNo\":\"985AB\",\r\n                        \"WardNo\":3,\r\n                        \"Street\":\"NL Road\",\r\n                        \"LandMark\":\"BSNL Microwave Tower\",\r\n                        \"City\":\"Purulia\",\r\n                        \"State\":\"WB\",\r\n                        \"Country\":\"INDIA\",\r\n                        \"PinCode\":723101\r\n                    }\r\n                ],\r\n                \"MarritalStatus\":\"MARRIED\"\r\n            },\r\n            \"EducationDetails\": [\r\n                {\r\n                    \"DegreeName\": \"B.Tech\",\r\n                    \"PassingYear\": 2016,\r\n                    \"Percentage\": 87,\r\n                    \"University\": \"WBUT/MAKAUT\",\r\n                    \"Institution\": \"FIEM\"\r\n                },\r\n                {\r\n                    \"DegreeName\": \"M.Tech\",\r\n                    \"PassingYear\": 2018,\r\n                    \"Percentage\": 78,\r\n                    \"University\": \"WBUT/MAKAUT\",\r\n                    \"Institution\": \"FIEM\"\r\n                }\r\n            ],\r\n            \"Certification\":[\r\n                {\r\n                    \"CertifiedOn\":\"DevOps\",\r\n                    \"ProviderOrganization\":\"Edureka\",\r\n                    \"IssuedYear\":2019,\r\n                    \"ValidTill\":9999\r\n                }\r\n            ],\r\n            \"AuthenticationDetails\":{\r\n                \"Password\":\"1234@ABCD\",\r\n                \"UserId\":\"AS77834\",\r\n                \"LastUpdated\":\"2020-04-09\"\r\n            },\r\n            \"IdentificationProof\":[\r\n                {\r\n                    \"IdProofType\" : \"AADHAR_ID\",\r\n                    \"DocumentUploaded\" : null\r\n                },\r\n                {\r\n                    \"IdProofType\" : \"PAN_CARD\",\r\n                    \"DocumentUploaded\" : null\r\n                }\r\n            ]\r\n            \r\n        } "
+				},
+				"description": "Register New Employee"
+			},
+			"response": []
+		},
+		{
+			"name": "LogIn",
+			"request": {
+				"url": "http://localhost:3000/user/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiJBRzU1OTExIiwiaWF0IjoxNTk4MTUyMDE0fQ.p7zGWV1YpGZf4kFjwpPCLv8KEci9YuY9bKtjDdTWrJg",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"UserId\":\"AS77834\",\n\t\"Password\":\"2020yyy\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Details",
+			"request": {
+				"url": "http://localhost:3000/user/getUserDetails",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiJBUzc3ODM0IiwiaWF0IjoxNjAxNDAyNDQ5fQ.BD23ed1p_5IZrTtJeB0Xro6XUBzYgWaVZiDAIZHvK7c",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update employee personal details",
+			"request": {
+				"url": "http://localhost:3000/user/update/EmpPersonalDetails",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiJBUzc3ODM0IiwiaWF0IjoxNjAxNDAyNDQ5fQ.BD23ed1p_5IZrTtJeB0Xro6XUBzYgWaVZiDAIZHvK7c",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"Name\":\"david miller\",\n\t\"MarritalStatus\":\"UNMARRIED\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Education Details",
+			"request": {
+				"url": "http://localhost:3000/user/update/EducationDetails/5f737651b28cae25644199d3",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiJBUzc3ODM0IiwiaWF0IjoxNjAxNDAyNDQ5fQ.BD23ed1p_5IZrTtJeB0Xro6XUBzYgWaVZiDAIZHvK7c",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"PassingYear\":2009\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add new education details",
+			"request": {
+				"url": "http://localhost:3000/user/add/EducationDetails",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiJBUzc3ODM0IiwiaWF0IjoxNjAxNDAyNDQ5fQ.BD23ed1p_5IZrTtJeB0Xro6XUBzYgWaVZiDAIZHvK7c",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"DegreeName\":\"MBA\",\n\t\"PassingYear\": 2020,\n\t\"Percentage\":98.92,\n\t\"University\":\"Amity\",\n\t\"Institution\":\"Corespondance\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update certification",
+			"request": {
+				"url": "http://localhost:3000/user/update/Certification/5f737651b28cae25644199d5",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiJBUzc3ODM0IiwiaWF0IjoxNjAxNDAyNDQ5fQ.BD23ed1p_5IZrTtJeB0Xro6XUBzYgWaVZiDAIZHvK7c",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ProviderOrganization\":\"Coursera\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "change password",
+			"request": {
+				"url": "http://localhost:3000/user/change/credential",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiJBUzc3ODM0IiwiaWF0IjoxNjAxNDAyNDQ5fQ.BD23ed1p_5IZrTtJeB0Xro6XUBzYgWaVZiDAIZHvK7c",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"NewPassword\":\"2020yyy\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
