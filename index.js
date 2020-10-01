@@ -25,4 +25,3 @@ application.listen(process.env.PORT||'3000',()=>{
     console.log('Server started at PORT ==> ');
     console.log(process.env.PORT||'3000')
 })
-

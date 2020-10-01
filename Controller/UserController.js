@@ -4,11 +4,15 @@ require('../Model/Connection')
 const auth = require('../middleware/auth')
 
 
+
+
+
 const EmpDetails = mongoose.model('EmpDetails')
 
 
 
 const router = express.Router();
+
 
 
 router.post('/register', async (req, res) => {
@@ -40,7 +44,7 @@ router.post('/login', async (req, res) => {
         console.log("**** Authentication Process Initiated *****")
         //console.log(req.body.UserId,req.body.Password)
         const user = await EmpDetails.findByCredentials(req.body.UserId, req.body.Password);
-        const token = user.generateAuthToken();
+        const token = await user.generateAuthToken();
 
         const publicUser = await user.usePublicProfile();
         res.send({ publicUser, token })
@@ -51,6 +55,38 @@ router.post('/login', async (req, res) => {
     }
 }, (error, req, res, next) => {
     res.status(400).send({ error: error.message })
+})
+
+
+router.post('/logout', auth, async (req, res) => {
+    try {
+        req.user.Tokens = req.user.Tokens.filter((t) => {
+            return t.token !== req.token
+        })
+
+        await req.user.save()
+        res.status(200).send({
+            data: req.user.EmpPersonalDetails.Name + '  logged out successfully for current session '
+        })
+    }
+    catch (e) {
+        res.status(500).send({ error: e.toString() })
+    }
+})
+
+
+router.post('/logout/all', auth, async (req, res) => {
+    try {
+        req.user.Tokens = []
+
+        await req.user.save()
+        res.status(200).send({
+            data: req.user.EmpPersonalDetails.Name + '  logged out successfully for all active session '
+        })
+    }
+    catch (e) {
+        res.status(500).send({ error: e.toString() })
+    }
 })
 
 router.get('/getUserDetails', auth, async (req, res) => {
