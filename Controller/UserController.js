@@ -148,7 +148,7 @@ router.patch('/update/EmpPersonalDetails', auth, async (req, res) => {
 
         await employee.save()
 
-        res.send(employee)
+        res.send(employee.EmpPersonalDetails)
     }
     catch (err) {
         res.status(400).send({ error: err.message })
