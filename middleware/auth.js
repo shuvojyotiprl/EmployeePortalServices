@@ -5,9 +5,16 @@ const EmployeeUtils = require('../util/EmpUtilProperties')
 const UserModel = mongoose.model('EmpDetails');
 
 const auth = async (req, res, next) => {
-    console.log('***** auth middleware runs *****')
+    console.log('***** auth middleware runs  *****')
+
+    
 
     try {
+
+        if(req.header('Authorization')==undefined || req.header('Authorization') =="")
+        {
+            throw Error('Authentication is required')
+        }
         const token = req.header('Authorization').replace('Bearer ', '')
         console.log(token)
         const decoded = jwt.verify(token, EmployeeUtils.jwt_key)

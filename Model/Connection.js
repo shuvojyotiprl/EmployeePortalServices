@@ -13,3 +13,4 @@ mongoose.connect(EmpUtilProp.db_url_dev,
     })
 
 require('../Model/EmployeeModel')
+require('../Model/ProjectDetails')
