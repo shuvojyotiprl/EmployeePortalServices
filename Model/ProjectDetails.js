@@ -1,10 +1,5 @@
 const mongoose = require('mongoose');
-//var EmpUtils = require('../util/EmpUtilProperties') ; //db properties
 
-
-/*mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);*/
 
 
 var ProjectSchema = new mongoose.Schema({

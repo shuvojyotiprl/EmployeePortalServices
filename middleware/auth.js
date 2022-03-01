@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
-const EmployeeUtils = require('../util/EmpUtilProperties')
+
 
 const UserModel = mongoose.model('EmpDetails');
 
@@ -17,7 +17,7 @@ const auth = async (req, res, next) => {
         }
         const token = req.header('Authorization').replace('Bearer ', '')
         console.log(token)
-        const decoded = jwt.verify(token, EmployeeUtils.jwt_key)
+        const decoded = jwt.verify(token, process.env.JWT_KEY)
         console.log(decoded)
         const user = await UserModel.findOne({ 'AuthenticationDetails.UserId': decoded.UserId, 'Tokens.token': token })
         console.log(user)

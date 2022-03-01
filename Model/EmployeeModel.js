@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 var validator = require('validator');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
-var EmpUtils = require('../util/EmpUtilProperties')
+
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
@@ -175,7 +175,7 @@ EmpDetails.statics.findByCredentials = async (userid, password) => {
 
 EmpDetails.methods.generateAuthToken = async function () {
     const user = this
-    const token = jwt.sign({ UserId: user.AuthenticationDetails.UserId.toString() }, EmpUtils.jwt_key)
+    const token = jwt.sign({ UserId: user.AuthenticationDetails.UserId.toString() }, process.env.JWT_KEY)
     user.Tokens = user.Tokens.concat({ token })
     await user.save()
     return token
