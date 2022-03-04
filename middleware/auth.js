@@ -16,9 +16,9 @@ const auth = async (req, res, next) => {
             throw Error('Authentication is required')
         }
         const token = req.header('Authorization').replace('Bearer ', '')
-        console.log(token)
+        //console.log(token)
         const decoded = jwt.verify(token, process.env.JWT_KEY)
-        console.log(decoded)
+        //console.log(decoded)
         const user = await UserModel.findOne({ 'AuthenticationDetails.UserId': decoded.UserId, 'Tokens.token': token })
         console.log(user)
 

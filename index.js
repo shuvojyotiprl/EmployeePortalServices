@@ -30,11 +30,13 @@ const UserCerificationRoute = require('./Controller/user/user.certification.cont
 const UserAuthernitactionRoute = require('./Controller/user/user.auth.controller')
 const UserEduRoute = require('./Controller/user/user.edu.controller')
 const UserPersonalRoute = require('./Controller/user/user.personal.controller')
+const IdtyRoute = require('./Controller/user/user.idty.controller')
 
 application.use('/user/personal',UserPersonalRoute)
 application.use('/user/edu',UserEduRoute)
 application.use('/user/auth',UserAuthernitactionRoute)
 application.use('/user/cert', UserCerificationRoute)
+application.use('/user/idty',IdtyRoute)
 application.use('/user',UserRoute)
 
 

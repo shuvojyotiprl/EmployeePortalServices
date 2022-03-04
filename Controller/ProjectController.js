@@ -112,10 +112,4 @@ router.patch('/:projectId', auth, async (req, res) => {
 })
 
 
-
-
-
-
-
-
 module.exports = router;
