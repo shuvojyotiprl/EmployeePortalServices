@@ -114,7 +114,8 @@ var CertificationSchema = new mongoose.Schema({
 
 var IdentificationProof = new mongoose.Schema({
     IdProofType: { type: String, enum: ['AADHAR_ID', 'VOTER_ID', 'PAN_CARD', 'DRIVING_L', 'PASSPORT'], required: true },
-    DocumentUploaded: { type: Buffer }
+    DocumentUploaded: { type: Buffer },
+    FileName:{type:String,require:false}
 })
 
 var AuthenticationSchema = new mongoose.Schema({
